@@ -1,90 +1,20 @@
 <!DOCTYPE html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Space template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Js -->
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/min/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.js"></script>
-
-    <!-- Google Map -->
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="js/google-map-init.js"></script>
-
-
-    <script src="js/main.js"></script>
-
-
-  </head>
+    <!-- Head Start -->
+        <?php $this->load->view("head");?>
+    <!-- head close -->
   <body>
-
-
-
     <!-- Header Start -->
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <!-- header Nav Start -->
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">
-                  <img src="img/logo.png" alt="Logo">
-                </a>
-              </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="work.html">Work</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->
-              </div><!-- /.container-fluid -->
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header><!-- header close -->
-        
+        <?php $this->load->view("header");?>  
+    <!-- header close -->
     <!-- Slider Start -->
     <section id="slider">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-2">
             <div class="block">
-              <h1 class="animated fadeInUp">A DIGITAL MARKETING &#38; <br> DESIGN AGENCY</h1>
-              <p class="animated fadeInUp">We love the Web and the work we do.We work closely with our </br> clients to deliver the best possible solutions for their needs</p>
+                <h1 class="animated fadeInUp"><?php echo replace_vocales_voculeshtml("VIAJE &#38; ENTRÉNATE");?><br>GANANDO DINERO</h1>
+                <p class="animated fadeInUp"><?php echo replace_vocales_voculeshtml("En BITSHARES UNIVERSITY creemos en un todo, no solamente las finanzas sino también el desarrollo como persona.");?></p>
             </div>
           </div>
         </div>
@@ -105,7 +35,7 @@
           </div><!-- .col-md-7 close -->
           <div class="col-md-5 col-sm-12">
             <div class="block">
-              <img src="img/wrapper-img.gif" alt="Img">
+                <img src="<?php echo site_url().'static/page_front/img/wrapper-img.gif';?>" alt="Img">
             </div>
           </div><!-- .col-md-5 close -->
         </div>
@@ -258,34 +188,34 @@
             <div class="testimonial-carousel">
               <div id="testimonial-slider" class="owl-carousel">
                 <div>
-                    <img src="img/cotation.png" alt="IMG">
+                    <img src="<?php echo site_url().'static/page_front/img/cotation.png';?>" alt="IMG">
                     <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
                     <div class="user">
-                      <img src="img/item-img1.jpg" alt="Pepole">
+                      <img src="<?php echo site_url().'static/page_front/img/item-img1.jpg';?>" alt="Pepole">
                       <p><span>Rose Ray</span> CEO</p>
                     </div>
                 </div>
                 <div>
-                  <img src="img/cotation.png" alt="IMG">
+                  <img src="<?php echo site_url().'static/page_front/img/cotation.png';?>" alt="IMG">
                     <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
                     <div class="user">
-                      <img src="img/item-img1.jpg" alt="Pepole">
+                      <img src="<?php echo site_url().'static/page_front/img/item-img1.jpg';?>" alt="Pepole">
                       <p><span>Rose Ray</span> CEO</p>
                     </div>
                 </div>
                 <div>
-                  <img src="img/cotation.png" alt="IMG">
+                  <img src="<?php echo site_url().'static/page_front/img/cotation.png';?>" alt="IMG">
                     <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
                     <div class="user">
-                      <img src="img/item-img1.jpg" alt="Pepole">
+                      <img src="<?php echo site_url().'static/page_front/img/item-img1.jpg';?>" alt="Pepole">
                       <p><span>Rose Ray</span> CEO</p>
                     </div>
                 </div>
                 <div>
-                  <img src="img/cotation.png" alt="IMG">
+                  <img src="<?php echo site_url().'static/page_front/img/cotation.png';?>" alt="IMG">
                     <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
                     <div class="user">
-                      <img src="img/item-img1.jpg" alt="Pepole">
+                      <img src="<?php echo site_url().'static/page_front/img/item-img1.jpg';?>" alt="Pepole">
                       <p><span>Rose Ray</span> CEO</p>
                     </div>
                 </div>
@@ -295,38 +225,8 @@
         </div>
       </div>
     </section>
-
-
-
-
-
-
-
-
-    
     <!-- footer Start -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="footer-manu">
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">How it works</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Terms</a></li>
-              </ul>
-            </div>
-            <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">Dcrazed</a>.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-            
-            
-  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-            
-    
+    <?php $this->load->view("footer");?>
+    <!-- footer End -->
     </body>
 </html>
