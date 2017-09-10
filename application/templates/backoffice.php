@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Somos un grupo de analistas del mercado bursátil que laboraban para la reconocida firma estadounidense Empire Capital Holdings; con la visión de ayudar a las personas su horizonte de inversión en el mercado existente.">
 <meta name="keywords" content="criptowin,mlm,bitcoin,mercado bursatil,bolsa de valores,forex,inversión,redes de mercadeo,multinivel,binario,dinero,millones,educacion,futuro">
-<title>CRIPTOWIN | Dashboard</title>
+<title>CRIPTOWIN | Back Office</title>
 <script src="https://use.fontawesome.com/3aa4a6fd0b.js"></script>
 
 <!-- Site favicon -->
@@ -41,6 +41,9 @@
 <!--[if lte IE 8]>
 	<script src="js/plugins/flot/excanvas.min.js"></script>
 <![endif]-->
+<script type="text/javascript">
+    var site = '<?php echo site_url();?>';
+</script>
 </head>
 <body>
 
@@ -54,7 +57,7 @@
 		<header class="site-header">
 		  <div class="site-logo">
                       <a href="<?php echo site_url().'backoffice';?>">
-                          <img src="<?php echo site_url().'static/page_front/images/logo_assest_2.png';?>" width="200px" alt="Logo Criptowin">
+                          <img style="margin-left: -20% !important" src="<?php echo site_url().'static/page_front/images/logo_assest_2.png';?>" width="200px" alt="Logo Criptowin">
                       </a>
                   </div>
 		  <div class="sidebar-collapse hidden-xs">
@@ -71,15 +74,63 @@
 		<!-- Main navigation -->
 		<!-- Main navigation -->
 		<ul id="side-nav" class="main-menu navbar-collapse collapse">
-                    <li class="has-sub"><a href="<?php echo site_url().'backoffice'?>"><i class="fa fa-tachometer fa-lg"></i><span class="title">Dashboard</span></a></li>
-                    <li class="has-sub"><a href="<?php echo site_url().'backoffice/profile'?>"><i class="fa fa-address-book fa-lg"></i><span class="title">Mi Perfil</span></a></li>
+                     <?php 
+                            if($_SESSION['customer']['active']==1){
+                                $title_active='Activo';
+                                $style_active='label-success';
+                            }else{
+                                $title_active='Inactivo';
+                                $style_active='label-danger';
+                            }
+                            ?>
+                     <?php 
+                                    $url = explode("/",uri_string()); 
+                                    $style_inicio = "";
+                                    $style_misdatos = "";
+                                    $style_upgrade = "";
+                                    $style_comisiones = "";
+                                    $style_mired = "";
+                                    $style_billetera = "";
+                                    $style_pagos = "";
+                                    if(isset($url[1])){
+                                        switch ($url[1]) {
+                                            ////////
+                                                    case "profile":
+                                                        $style_misdatos = "a_active";
+                                                        break;
+                                                    case "info-productos":
+                                                        $infoproductos = "a_active";
+                                                        break;
+                                                    case "upgrade":
+                                                        $style_upgrade = "a_active";
+                                                        break;
+                                                    case "binario":
+                                                        $style_mired = "a_active";
+                                                        break;
+                                                    case "comisiones":
+                                                        $style_comisiones = "a_active";
+                                                        break;
+                                                    case "billetera":
+                                                        $style_billetera = "a_active";
+                                                        break;
+                                                    case "cobros":
+                                                        $style_pagos = "a_active";
+                                                        break;
+                                                    default:
+                                                         $title = "Inicio";
+                                            }
+                                    }else{
+                                        $style_inicio = "a_active";
+                                    }
+                                    ?>  
+                        <li class="has-sub"><a class="<?php echo $style_active;?>"><em class="icon-star"></em><span class="title"><?php echo $title_active;?></span></a></li>
+                        <li class="has-sub"><a href="<?php echo site_url().'backoffice'?>" class="<?php echo $style_inicio;?>"><i class="fa fa-tachometer fa-lg"></i><span class="title">Dashboard</span></a></li>
+                        <li class="has-sub"><a href="<?php echo site_url().'backoffice/profile'?>" class="<?php echo $style_misdatos;?>"><i class="fa fa-address-book fa-lg"></i><span class="title">Mi Perfil</span></a></li>
 			<li class="has-sub"><a href="#"><i class="fa fa-arrow-up fa-lg"></i><span class="title">Upgrade</span></a></li>
-			<li class="has-sub"><a href="#"><i class="fa fa-cubes fa-lg"></i><span class="title">Binario</span></a></li>
-			<li class="has-sub"><a href="#"><i class="fa fa-area-chart" fa-lg"></i><span class="title">Mis Comisiones</span></a></li>
-			<li class="has-sub"><a href="#"><i class="fa fa-btc fa-lg"></i><span class="title">Billetera</span></a></li>
-                        <li class="has-sub"><a href="#"><i class="fa fa-university fa-lg"></i><span class="title">Pagos</span></a></li>
-                        <li class="has-sub"><a href="<?php echo site_url().'login/logout';?>"><i class="fa fa-sign-out fa-lg"></i><span class="title">Salir</span></a></li>
-			
+			<li class="has-sub"><a href="<?php echo site_url().'backoffice/binario'?>" class="<?php echo $style_mired;?>"><i class="fa fa-cubes fa-lg"></i><span class="title">Binario</span></a></li>
+			<li class="has-sub"><a href="<?php echo site_url().'backoffice/comisiones'?>" class="<?php echo $style_comisiones;?>"><i class="fa fa-area-chart fa-lg"></i><span class="title">Mis Comisiones</span></a></li>
+			<li class="has-sub"><a href="<?php echo site_url().'backoffice/billetera'?>" class="<?php echo $style_billetera;?>"><i class="fa fa-btc"></i><span class="title">Billetera</span></a></li>
+                        <li class="has-sub"><a href="<?php echo site_url().'backoffice/cobros'?>" class="<?php echo $style_pagos;?>"><i class="fa fa-university fa-lg"></i><span class="title">Cobros</span></a></li>
 		</ul>
 		<!-- /main navigation -->		
   </div>
@@ -96,14 +147,14 @@
 			<ul class="user-info pull-left">          
                             <li class="profile-info dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> 
-                                    <img width="44" class="img-circle avatar" alt="" src="<?php echo site_url().'static/backoffice/images/avatar/avatar.png';?>">Rolando Contreras &nbsp;&nbsp;<i class="fa fa-arrow-down" aria-hidden="true"></i>
+                                    <img width="44" class="img-circle avatar" alt="" src="<?php echo site_url().'static/backoffice/images/avatar/avatar.png';?>"><?php echo $_SESSION['customer']['name'];?> &nbsp;&nbsp;<i class="fa fa-arrow-down" aria-hidden="true"></i>
                                 </a>
 
                                           <!-- User action menu -->
                               <ul class="dropdown-menu">
 
-                                <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>My profile</a></li>
-                                <li><a href="#"><i class="fa fa-comment" aria-hidden="true"></i>Messages</a></li>
+                                  <li><a href="<?php echo site_url().'backoffice/profile';?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i>My profile</a></li>
+                                <li><a href="#"><i class="fa fa-comment" aria-hidden="true"></i>Mensajes</a></li>
                                             <li class="divider"></li>
                                             <li><a href="<?php echo site_url().'login/logout';?>"><i class="fa fa-sign-out fa-lg"></i>Salir</a></li>
                               </ul>
@@ -120,34 +171,15 @@
 				<!-- User alerts -->
 				<ul class="user-info pull-left">
 				
-				  <!-- Notifications -->
-				  <li class="notifications dropdown">
-					<a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-attention"></i><span class="badge badge-info">6</span></a>
-					<ul class="dropdown-menu pull-right">
-						<li class="first">
-							<div class="small"><a class="pull-right danger" href="#">Mark all Read</a> You have <strong>3</strong> new notifications.</div>
-						</li>
-						<li>
-							<ul class="dropdown-list">
-								<li class="unread notification-success"><a href="#"><i class="icon-user-add pull-right"></i><span class="block-line strong">New user registered</span><span class="block-line small">30 seconds ago</span></a></li>
-								<li class="unread notification-secondary"><a href="#"><i class="icon-heart pull-right"></i><span class="block-line strong">Someone special liked this</span><span class="block-line small">60 seconds ago</span></a></li>
-								<li class="unread notification-primary"><a href="#"><i class="icon-user pull-right"></i><span class="block-line strong">Privacy settings have been changed</span><span class="block-line small">2 hours ago</span></a></li>
-								<li class="notification-danger"><a href="#"><i class="icon-cancel-circled pull-right"></i><span class="block-line strong">Someone special liked this</span><span class="block-line small">60 seconds ago</span></a></li>
-								<li class="notification-info"><a href="#"><i class="icon-info pull-right"></i><span class="block-line strong">Someone special liked this</span><span class="block-line small">60 seconds ago</span></a></li>
-								<li class="notification-warning"><a href="#"><i class="icon-rss pull-right"></i><span class="block-line strong">Someone special liked this</span><span class="block-line small">60 seconds ago</span></a></li>
-							</ul>
-						</li>
-						<li class="external-last"> <a href="#" class="danger">View all notifications</a> </li>
-					</ul>
-				  </li>
 				  <!-- /notifications -->
 				  
 				  <!-- Messages -->
 				  <li class="notifications dropdown">
-					<a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-mail"></i><span class="badge badge-secondary">12</span></a>
+					<a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                            <i class="icon-mail"></i><span class="badge badge-secondary">1</span></a>
 					<ul class="dropdown-menu pull-right">
 						<li class="first">
-							<div class="dropdown-content-header"><i class="fa fa-pencil-square-o pull-right"></i> Messages</div>
+							<div class="dropdown-content-header"><i class="fa fa-pencil-square-o pull-right"></i> Mensajes</div>
 						</li>
 						<li>
 							<ul class="media-list">
@@ -155,55 +187,15 @@
 									<div class="media-left"><img alt="" class="img-circle img-sm" src="images/domnic-brown.png"></div>
 									<div class="media-body">
 										<a class="media-heading" href="#">
-											<span class="text-semibold">Domnic Brown</span>
+											<span class="text-semibold">Criptowin</span>
 											<span class="media-annotation pull-right">Tue</span>
 										</a>
-										<span class="text-muted">Your product sounds interesting I would love to check this ne...</span>
-									</div>
-								</li>
-								<li class="media">
-									<div class="media-left"><img alt="" class="img-circle img-sm" src="images/john-smith.png"></div>
-									<div class="media-body">
-										<a class="media-heading" href="#">
-											<span class="text-semibold">John Smith</span>
-											<span class="media-annotation pull-right">12:30</span>
-										</a>
-										<span class="text-muted">Thank you for posting such a wonderful content. The writing was outstanding...</span>
-									</div>
-								</li>
-								<li class="media">
-									<div class="media-left"><img alt="" class="img-circle img-sm" src="images/stella-johnson.png"></div>
-									<div class="media-body">
-										<a class="media-heading" href="#">
-											<span class="text-semibold">Stella Johnson</span>
-											<span class="media-annotation pull-right">2 days ago</span>
-										</a>
-										<span class="text-muted">Thank you for trusting us to be your source for top quality sporting goods...</span>
-									</div>
-								</li>
-								<li class="media">
-									<div class="media-left"><img alt="" class="img-circle img-sm" src="images/alex-dolgove.png"></div>
-									<div class="media-body">
-										<a class="media-heading" href="#">
-											<span class="text-semibold">Alex Dolgove</span>
-											<span class="media-annotation pull-right">10:45</span>
-										</a>
-										<span class="text-muted">After our Friday meeting I was thinking about our business relationship and how fortunate...</span>
-									</div>
-								</li>
-								<li class="media">
-									<div class="media-left"><img alt="" class="img-circle img-sm" src="images/domnic-brown.png"></div>
-									<div class="media-body">
-										<a class="media-heading" href="#">
-											<span class="text-semibold">Domnic Brown</span>
-											<span class="media-annotation pull-right">4:00</span>
-										</a>
-										<span class="text-muted">I would like to take this opportunity to thank you for your cooperation in recently completing...</span>
+										<span class="text-muted">Bienvenido a Criptowin, te deseamos éxito...</span>
 									</div>
 								</li>
 							</ul>
 						</li>
-						<li class="external-last"> <a class="danger" href="#">All Messages</a> </li>
+						<li class="external-last"> <a class="danger" href="#">Todos los Mensajes</a> </li>
 					</ul>
 				  </li>
 				  <!-- /messages -->
@@ -220,7 +212,7 @@
             <?php echo $body;?> 
       <!--START FOOTER-->
       <footer class="footer-main"> 
-			&copy; 2017 <strong>BISAR</strong>
+			&copy; 2017 <strong>CRIPTOWIN</strong>
       </footer>	
   <!-- /main container -->
   
