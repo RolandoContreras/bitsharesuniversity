@@ -23,7 +23,7 @@
 |
 */
 //$config['base_url'] = 'http://criptowin.com';
-$config['base_url'] = 'http://bitsharesuniversity.com/';
+$config['base_url'] = 'http://localhost/bitsharesuniversity';
 
 /*
 |--------------------------------------------------------------------------
